@@ -1,8 +1,8 @@
-import { Text, View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
-import { FIRST_TAB, SECOND_TAB, THIRD_TAB, FOURTH_TAB } from "./RoutesName";
-import { noHeaderNavigationConfig } from "./NavigationOptions";
+import { Text, View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { FIRST_TAB, SECOND_TAB, THIRD_TAB, FOURTH_TAB } from './RoutesName';
+import { noHeaderNavigationConfig } from './NavigationOptions';
 
 export type TabNavigatorParamList = {
   [FIRST_TAB]: undefined;

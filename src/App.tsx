@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import AppNavigator from "./navigators/AppNavigator";
-import AppStateSideEffects from "./AppStateSideEffects";
+import AppNavigator from './navigators/AppNavigator';
+import AppStateSideEffects from './AppStateSideEffects';
 
 function App(): JSX.Element {
   return (

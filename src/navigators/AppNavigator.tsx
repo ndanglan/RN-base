@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { NavigatorScreenParams } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, { useRef } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { NavigatorScreenParams } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { navigationRef } from "./NavigationService";
-import { HOME, TAB_NAVIGATOR } from "./RoutesName";
-import Home from "../views/home";
-import { defaultNavigationConfig, noHeaderNavigationConfig } from "./NavigationOptions";
-import TabNavigator from "./TabNavigator";
+import { navigationRef } from './NavigationService';
+import { HOME, TAB_NAVIGATOR } from './RoutesName';
+import Home from '../views/home';
+import { defaultNavigationConfig, noHeaderNavigationConfig } from './NavigationOptions';
+import TabNavigator from './TabNavigator';
 
 export type ModalNavigatorParamList = {
   [HOME]: undefined;
@@ -22,10 +22,10 @@ function AppNavigator() {
   // gets the current screen from navigation state
   const onStateChange = async () => {
     const previousRouteName = routeRef.current;
-    const currentRouteName = navigationRef.current?.getCurrentRoute()?.name ?? "";
+    const currentRouteName = navigationRef.current?.getCurrentRoute()?.name ?? '';
 
     if (previousRouteName !== currentRouteName) {
-      console.log("New Screen", currentRouteName);
+      console.log('New Screen', currentRouteName);
     }
 
     // Save the current route name for later comparison

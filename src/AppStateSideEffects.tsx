@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import { AppState, AppStateStatus, View } from "react-native";
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { AppState, AppStateStatus, View } from 'react-native';
 
 const AppStateSideEffects: FC = () => {
   const appState = useRef(AppState.currentState);
@@ -11,7 +11,7 @@ const AppStateSideEffects: FC = () => {
   };
 
   useEffect(() => {
-    const subscription = AppState.addEventListener("change", handleAppStateChange);
+    const subscription = AppState.addEventListener('change', handleAppStateChange);
 
     return () => {
       subscription.remove();
@@ -19,7 +19,7 @@ const AppStateSideEffects: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (appStateVisible === "active") {
+    if (appStateVisible === 'active') {
       // Put active side-effects here
     }
   }, [appStateVisible]);
