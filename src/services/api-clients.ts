@@ -1,14 +1,14 @@
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
 import Config from 'react-native-config';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { HttpStatusCodes } from '@constants/common-constants';
+import { EAuth } from '@constants/auth-constants';
 
 const instance = axios.create({ baseURL: Config.REACT_NATIVE_API_URL });
 
-const requestHandler = (config: AxiosRequestConfig) => {
-  // const accessToken = appStore.getState().authStore.accessToken;
-  console.log(config);
-  const accessToken = '';
+const requestHandler = async (config: AxiosRequestConfig) => {
+  const accessToken = await AsyncStorage.getItem(EAuth.ACCESS_TOKEN);
   config.headers = {
     Authorization: `Bearer ${accessToken}`,
     ...config.headers,
@@ -26,8 +26,7 @@ const responseErrorHandler = async (err: AxiosError) => {
   if (err?.response?.status === HttpStatusCodes.UNAUTHORIZED && !originalRequest._retry) {
     try {
       originalRequest._retry = true;
-      // const refreshToken = store.getState().authStore.refreshToken;
-      const refreshToken = '';
+      const refreshToken = await AsyncStorage.getItem(EAuth.REFRESH_TOKEN);
 
       const { data }: AxiosResponse<any> = await axios({
         baseURL: Config.REACT_NATIVE_API_URL,
