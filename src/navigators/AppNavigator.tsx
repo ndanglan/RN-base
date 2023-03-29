@@ -35,8 +35,8 @@ function AppNavigator() {
   return (
     <NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
       <Stack.Navigator screenOptions={defaultNavigationConfig}>
-        <Stack.Screen name={TAB_NAVIGATOR} component={TabNavigator} options={noHeaderNavigationConfig} />
         <Stack.Screen name={HOME} component={Home} />
+        <Stack.Screen name={TAB_NAVIGATOR} component={TabNavigator} options={noHeaderNavigationConfig} />
       </Stack.Navigator>
     </NavigationContainer>
   );
