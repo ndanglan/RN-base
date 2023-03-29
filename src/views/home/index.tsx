@@ -1,19 +1,28 @@
 import { Text, View } from 'react-native';
-import React, { useEffect } from 'react';
-import { getSingleTodo } from '@services/example-services';
+import React, { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { TFetchSingleTodoPayload } from '@interfaces/todo-interfaces';
+import { fetchSingleTodoAction } from '@stores/actions/todo-actions';
+import { TRootState } from '@stores/reducers';
 
 const Home = () => {
-  const fetchTodo = async () => {
-    const data = await getSingleTodo();
-    console.log({ data });
-  };
+  const dispatch = useDispatch();
+  const { todo } = useSelector((state: TRootState) => state.todoStore);
+  const fetchTodo = useCallback(
+    (payload: TFetchSingleTodoPayload) => {
+      dispatch(fetchSingleTodoAction(payload));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
-    fetchTodo();
-  }, []);
+    fetchTodo({ id: 1 });
+  }, [fetchTodo]);
+
   return (
     <View>
-      <Text>Home</Text>
+      <Text>{JSON.stringify(todo)}</Text>
     </View>
   );
 };

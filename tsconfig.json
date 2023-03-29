@@ -21,7 +21,8 @@
       "@services/*": ["./src/services/*"],
       "@views/*": ["./src/views/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@stores/*": ["./src/stores/*"]
     }
   },
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
